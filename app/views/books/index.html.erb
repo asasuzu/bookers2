@@ -1,0 +1,29 @@
+<p>noticあとでいれる</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+     
+      <h2>User info</h2>
+　　　<%= image_tag @user.get_profile_image(100,100) %>
+      name
+      <%= @user.name %>
+      introduction
+      <%= @user.introduction %>
+    </div>
+    <div class="col-md-9">
+       <% @books.each do |book| %>
+       　<%= image_tag book.user.get_profile_image(100,100) %>
+      name
+      <%= book.user.name %>
+      introduction
+      <%= book.user.introduction %>
+       <% end %>
+    </div>
+  </div>
+  
+</div>
+
+
+
+
+
