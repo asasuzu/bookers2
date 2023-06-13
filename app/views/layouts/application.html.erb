@@ -25,7 +25,7 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
             <li>
-              <%= link_to " Home", "/" ,
+              <%= link_to " Home", "/users/#{current_user.id}",
               class: 'fas fa-home style=color: #ffffff nav-link text-light' %>
             </li>
             
@@ -50,7 +50,7 @@
               class: 'fas fa-home style=color: #ffffff nav-link text-light' %>
             </li>
             <li>
-              <%= link_to " About", "/homes/about" ,
+              <%= link_to " About", "/home/about" ,
               class: 'fas fa-link style=color: #ffffff nav-link text-light' %>
             </li>
             <li>
@@ -67,7 +67,10 @@
         </div>
       </nav>
     </header>
-    <main class="mb-auto">
+    <main>
+      <% flash.each do |message_type, message| %>
+      <%= content_tag :div, message, class: message_type %>
+      <% end %>
     <%= yield %>
     </main>
     <footer>
